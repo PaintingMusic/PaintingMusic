@@ -102,7 +102,7 @@ void MainWindow::ChangeStartStopButton()
 
 /*int MainWindow::GetRectX(int i)
 {
-    return 0;
+    return 0; brbr_test
 }
 */
 MainWindow::~MainWindow()
