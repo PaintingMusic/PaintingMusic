@@ -1,0 +1,36 @@
+#include "transformation.h"
+
+
+#include <iostream>
+#include <string>
+#include <cstdio>
+using namespace std;
+
+int main_example_transform(int argc, char *argv[] )
+{
+
+int choose_note = 3;
+
+
+printf("Begin of fun... =) \n \n ");
+
+Transformation *transform = new Transformation;
+
+int notesarray[100];
+transform->getallNotesf_from_file(notesarray);
+
+printf(" Note  example = %i \n ", transform->getonenote(choose_note));
+
+//string colors[100];
+string *colors1 = new string;
+transform->setparallelnotes_and_colors(colors1);
+
+
+printf(" Color example = %s \n ", (transform->getonecolor(choose_note)).c_str());
+
+printf(" \nEnd of fun  =( \n ");
+
+
+
+
+}

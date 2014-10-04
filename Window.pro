@@ -13,8 +13,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    transformation.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    transformation.h
 
 FORMS    += mainwindow.ui
+
+OTHER_FILES += \
+    ran_transform_example.txt
