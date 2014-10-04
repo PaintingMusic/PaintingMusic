@@ -27,6 +27,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    int Width;
+
 private:
 
     QLabel *label;
@@ -36,15 +38,23 @@ private:
 
     int h;
     int w;
-    int notes;
-    QColor colours[4];
+    int notes, NoteCounter;
+    int rect_x,rect_y, rect_w,rect_h;
+    QColor colours[4], single_color;
+    QString ButtonLabel;
+    QRect RectList[4];
+    QTimer *timer;
+
 
 private slots:
 
     void start();
+    void timer_slot();
 
 protected:
     void paintEvent(QPaintEvent *event);
+    void DrawEvent(QPainter *painter);
+    void ChangeStartStopButton();
 
 
 };
