@@ -9,23 +9,24 @@
     #include <iostream>
     #include <fstream>
 
+#include <string>
+#include <cstdio>
+#include <vector>
 
-// Setting parallels on note and color
-    void	Transformation::setparallelnotes_and_colors(string *colores_id)
+using namespace std;
+
+/// Setting parallels on note and color
+
+    QStringList	Transformation::setparallelnotes_and_colors()
     {
 
-        for(int i=1;i<=Transformation::getsizenotes(allnotes);i++)
-        {
-            allcolor[i-1] = Transformation::set_one_note_to_color(i);
+        vector<int> notes_v;
+        notes_v = Transformation::getallNotesf_from_file();
 
-        }
+       for(int i=0;i<(int)notes_v.size();i++)
+       {
 
-    }
-
-/// one note translation to color;
-    string 	Transformation::set_one_note_to_color(int note_id)
-    {
-        switch (Transformation::getonenote(note_id))
+        switch (notes_v.at(i))
 
         {
         case 1:
@@ -67,41 +68,36 @@
         default:
             color_id = "ups";
         }
+      allcolor.append(color_id);
+      }
 
-        return color_id;
+        return allcolor;
     }
 
-// Getting one note;
-    int 	Transformation::getonenote(int note_id)
+/// Get notes from file:
+    vector<int> 	Transformation::getallNotesf_from_file( )
     {
-        /// add get array .. from file.
-        return Transformation::allnotes[note_id-1];
-    }
 
-// Get Size of array;
-    int 	Transformation::getsizenotes(int *Notes)
-    {
-        SizeNotes = sizeof( Notes );
-        return SizeNotes;
-    }
-
-// Get notes from file:
-    void 	Transformation::getallNotesf_from_file( int *allnotes_tmp)
-    {
-        ifstream F;
-        F.open("/home/tonic/workspace/cmus/notes_input/first_test.txt", ios::in);
-        if (F) 	{
-        int k=0;
-        while (!F.eof())
+        ifstream file("/home/tonic/qt_project/PaintingMusic/first_test.txt");
+        if(!file)
         {
-            F>>allnotes_tmp[k]; allnotes[k] = allnotes_tmp[k];
-            k++;
+            cerr<<("\n Can't open file ")<<endl;
+            exit(1);
         }
-                } else {cout<<" File does not exist! "<<endl;}
-    }
+        int a;
+        while(!file.eof())
+        {
+            if(!file.good())
+            {
+                cerr<<endl<<"something wrong with "<< endl;
+                exit (2);
+            }
+            file>>a; the_vector.push_back(a);
 
-// Get one color:
-    string 	Transformation::getonecolor(int id_color)
-    {
-        return Transformation::allcolor[id_color-1];
+        }
+
+    the_vector.erase(the_vector.end()-1);
+
+
+    return the_vector;
     }

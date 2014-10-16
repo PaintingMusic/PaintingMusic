@@ -22,4 +22,7 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 OTHER_FILES += \
-    ran_transform_example.txt
+    ran_transform_example.txt \
+    additional_info.txt \
+    first_test.txt \
+    first_test_0.txt

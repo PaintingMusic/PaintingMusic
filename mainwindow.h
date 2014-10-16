@@ -14,7 +14,6 @@
 #include <string>
 #include <iostream>
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -40,9 +39,9 @@ private:
     int w;
     int notes, NoteCounter;
     int rect_x,rect_y, rect_w,rect_h;
-    QColor colours[4], single_color;
+    QColor colours[400], single_color;
     QString ButtonLabel;
-    QRect RectList[4];
+    QRect RectList[400];
     QTimer *timer;
 
 

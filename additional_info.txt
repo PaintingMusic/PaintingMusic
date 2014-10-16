@@ -1,0 +1,15 @@
+Notes:
+Titanic
+http://www.melodyforever.ru/2009110153/%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0-%D0%BA%D0%B8%D0%BD%D0%BE%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D0%BE%D0%B2-%D0%B8-%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%BE%D0%B2/my-heart-will-go-on.html
+
+
+Possible add to mainwindow.cpp:
+
+    /// Declare number of notes
+    notes = colors.size();
+
+    for(int count = 0; count <<notes;count++)
+    {
+        colours[count] = QColor(colors[count]);
+
+    }

@@ -1,36 +1,28 @@
-#include "transformation.h"
-
-
+#include <fstream>
 #include <iostream>
-#include <string>
-#include <cstdio>
 using namespace std;
 
-int main_example_transform(int argc, char *argv[] )
-{
 
-int choose_note = 3;
+     printf("Begin of fun... =) \n\n");
 
+     Transformation *transform = new Transformation;
 
-printf("Begin of fun... =) \n \n ");
+     /// main method
+     QStringList colors;
+     colors = transform->setparallelnotes_and_colors();
 
-Transformation *transform = new Transformation;
+     /// output test one element from QStringList
+     string output_test = qstrdup(colors[14].toLatin1());
+     cout<<"One of the color (15s note) is :"<<output_test<<"\n\n";
 
-int notesarray[100];
-transform->getallNotesf_from_file(notesarray);
-
-printf(" Note  example = %i \n ", transform->getonenote(choose_note));
-
-//string colors[100];
-string *colors1 = new string;
-transform->setparallelnotes_and_colors(colors1);
+     /// Size example
+     cout<<"N notes and colors is :"<<(int)colors.size()<<"\n\n";
 
 
-printf(" Color example = %s \n ", (transform->getonecolor(choose_note)).c_str());
+     /// Iterator example
+     QStringList::const_iterator Iterator;
+     for (Iterator = colors.constBegin(); Iterator != colors.constEnd(); ++Iterator)
+     cout << (*Iterator).toLocal8Bit().constData() << endl;
 
-printf(" \nEnd of fun  =( \n ");
 
-
-
-
-}
+     printf(" \nEnd of fun  =( \n ");
